@@ -5,5 +5,7 @@
 Requires `ipython` and `ipykernel`
 
 ```bash
-ipython kernel install --user --name=<any-name>
+ipython kernel install --user --name=<any-venv-name>
 ```
+
+In Jupyter Lab GUI, chose `Kernel` tab, then `Change Kernel...` pick `<any-venv-name>`
