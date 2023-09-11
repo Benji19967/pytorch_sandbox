@@ -1,5 +1,7 @@
 # PyTorch Tensors
 
+https://pytorch.org/docs/stable/tensors.html
+
 - Multi-dimensional matrix
 - Only contains a single data type
   - floating point, integer (signed/unsigned), boolean, complex, quantized
