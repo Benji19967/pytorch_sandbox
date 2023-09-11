@@ -5,8 +5,11 @@ description = "Playing around with PyTorch"
 authors = [ "Benjamin Labrecque" ]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.10"
 torch = "^2.0.1"
+ipython = "^8.15.0"
+jupyterlab = "^4.0.5"
+pendulum = "^2.1.2"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.2.1"
