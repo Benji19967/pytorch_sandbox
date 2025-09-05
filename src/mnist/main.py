@@ -1,7 +1,11 @@
 import torch
 import torchvision
 from PIL.Image import Image
+from torch.utils.data import random_split
 from torchvision.transforms import transforms
+
+NUM_IMAGES_TRAIN = 50_000
+NUM_IMAGES_VALIDATION = 10_000
 
 
 def load(load_as_tensor: bool = True):
@@ -38,11 +42,16 @@ def main_tensor():
     NUM_IMAGES = len(mnist)
     print(NUM_IMAGES)
 
+    print(type(mnist))
     for image, label in mnist:
         image: torch.Tensor
         print(image.shape, image.dtype)
         print(image[0])
         break
+
+    train_data, validation_data = random_split(
+        mnist, [NUM_IMAGES_TRAIN, NUM_IMAGES_VALIDATION]
+    )
 
 
 if __name__ == "__main__":
