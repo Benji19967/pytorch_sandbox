@@ -1,11 +1,13 @@
 import torch
 import torchvision
 from PIL.Image import Image
-from torch.utils.data import random_split
+from torch.utils.data import DataLoader, random_split
 from torchvision.transforms import transforms
 
 NUM_IMAGES_TRAIN = 50_000
 NUM_IMAGES_VALIDATION = 10_000
+
+BATCH_SIZE = 128
 
 
 def load(load_as_tensor: bool = True):
@@ -52,6 +54,17 @@ def main_tensor():
     train_data, validation_data = random_split(
         mnist, [NUM_IMAGES_TRAIN, NUM_IMAGES_VALIDATION]
     )
+
+    train_loader = DataLoader(train_data, batch_size=BATCH_SIZE, shuffle=True)
+    validation_loader = DataLoader(validation_data, batch_size=BATCH_SIZE)
+
+    for image_batch, labels_batch in train_loader:
+        print(image_batch.shape, labels_batch.shape)
+        break
+
+    for image_batch, labels_batch in validation_loader:
+        print(image_batch.shape, labels_batch.shape)
+        break
 
 
 if __name__ == "__main__":
